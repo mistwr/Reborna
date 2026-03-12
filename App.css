@@ -1,0 +1,176 @@
+/* App-specific styles */
+
+/* Ensure smooth scrolling behavior */
+html {
+  scroll-behavior: auto;
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Glass card hover effects */
+.glass-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.6);
+}
+
+/* Button hover lift effect */
+.btn-primary,
+.btn-secondary {
+  transition: all 0.2s ease;
+}
+
+/* Chat message animations */
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-message-enter {
+  animation: messageSlideIn 0.3s ease forwards;
+}
+
+/* FAQ accordion smooth height */
+.faq-content {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+/* Sector tile hover */
+.sector-tile {
+  transition: all 0.2s ease;
+}
+
+.sector-tile:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Testimonial card hover */
+.testimonial-card {
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Problem card accent line animation */
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2E6AFF, #7AA2FF);
+  opacity: 0.8;
+}
+
+/* Feature card value label */
+.value-label {
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover .value-label {
+  opacity: 1;
+}
+
+/* Pricing VS badge pulse */
+.vs-badge {
+  animation: vsPulse 3s ease-in-out infinite;
+}
+
+@keyframes vsPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Market card stack effect */
+.market-card {
+  transition: transform 0.2s ease;
+}
+
+.market-card:hover {
+  transform: translateX(4px);
+}
+
+/* Glow orb animation */
+.glow-orb {
+  animation: glowDrift 8s ease-in-out infinite;
+}
+
+@keyframes glowDrift {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.02);
+  }
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 768px) {
+  .text-display-1 {
+    font-size: clamp(32px, 8vw, 44px);
+  }
+  
+  .text-display-2 {
+    font-size: clamp(28px, 6vw, 34px);
+  }
+  
+  .glass-card {
+    border-radius: 20px;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .glow-orb,
+  .animate-float,
+  .animate-pulse-glow {
+    animation: none;
+  }
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #2E6AFF;
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(46, 106, 255, 0.3);
+  color: #F4F6FF;
+}
